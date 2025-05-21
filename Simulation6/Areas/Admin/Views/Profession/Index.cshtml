@@ -1,0 +1,32 @@
+﻿@model List<ProfessionGetVM>
+
+@{
+    int order = 1;
+}
+<table class="table">
+    <thead class="thead-dark">
+        <a class="btn btn-success" asp-action="Create" > Create</a>
+
+        <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var profession in Model)
+        {
+            <tr>
+                <th scope="row">@(order++)</th>
+                <td>@profession.Name</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Update" asp-route-id="@profession.Id"> Update</a>
+                    <a class="btn btn-dark" asp-action="Delete" asp-route-id="@profession.Id"> Delete</a>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+</table>
